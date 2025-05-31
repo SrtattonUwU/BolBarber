@@ -1,0 +1,48 @@
+<nav class="navbar">
+    <div class="navbar-left">
+    <h2>BolBarber</h2>
+    </div>
+    <div class="navbar-right">
+        <button (click)="goToHome()">Principal</button>
+        <button (click)="goToProducts()">Productos</button>
+        <button (click)="goToCitations()">Citas</button>
+        <button (click)="goToProfile()">Perfil</button>
+        <button>Acerca de</button>
+        <button (click)="logOut()">Cerrar sesión</button>
+    </div>
+</nav>
+
+<div class="about-container">
+    <h2>Acerca de</h2>
+    <p>
+        En BolBarber, más que una barbería, somos un espacio donde el estilo y la tradición se 
+        encuentran. Nos especializamos en ofrecer cortes de cabello y arreglos de barba con la 
+        máxima calidad y atención al detalle, siempre adaptándonos a las últimas tendencias y 
+        necesidades de nuestros clientes.
+    </p>
+
+    <p>
+        Nuestro equipo de barberos profesionales está comprometido con brindar una experiencia 
+        única, combinando técnicas clásicas y modernas para resaltar tu mejor versión. Además, 
+        contamos con productos de primera calidad para el cuidado del cabello y la barba, 
+        asegurando que te veas y sientas increíble, tanto dentro como fuera de nuestra barbería.
+    </p>
+
+    <h2>Contáctanos</h2>
+    
+    <form class="contact-form">
+        <label for="firstName">Primer nombre:</label>
+        <input type="text" id="firstName" [(ngModel)]="contact.firstName" name="firstName" required />
+
+        <label for="lastName">Apellido:</label>
+        <input type="text" id="lastName" [(ngModel)]="contact.lastName" name="lastName" required />
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" [(ngModel)]="contact.email" name="email" required />
+
+        <label for="message">Mensaje:</label>
+        <textarea id="message" [(ngModel)]="contact.message" name="message" rows="4" required></textarea>
+
+        <button type="button" (click)="sendContact()">Enviar</button>
+    </form>
+</div>

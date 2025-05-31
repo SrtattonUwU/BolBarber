@@ -1,0 +1,84 @@
+<nav class="navbar">
+    <div class="navbar-left">
+        <h2>BolBarber</h2>
+    </div>
+    <div class="navbar-right">
+        <button (click)="goToHome()">Principal</button>
+        <button (click)="goToProducts()">Productos</button>
+        <button>Citas</button>
+        <button (click)="goToProfile()">Perfil</button>
+        <button (click)="goToAbout()">Acerca de</button>
+        <button (click)="logOut()">Cerrar sesión</button>
+    </div>
+</nav>
+
+<div class="citations-actions">
+    <button class="buttons" (click)="showAddCitationForm()">Agregar Cita</button>
+    <button class="buttons" (click)="modifyCitation()">Modificar Cita</button>
+    <button class="buttons" (click)="deleteShowCitation()">Eliminar Cita</button>
+</div>
+
+<div class="add-citation-form" *ngIf="showAddCitation">
+    <div>
+        <label>Fecha:</label>
+        <input type="date" [(ngModel)]="newCitation.selectedDate" />
+
+        <label>Hora:</label>
+        <input type="time" [(ngModel)]="newCitation.selectedHour" />
+
+        <label>Barbero:</label>
+        <select [(ngModel)]="newCitation.selectedBarber" name="barberSelect" required>
+            <option value="" disabled selected>Seleccionar barbero</option>
+            <option *ngFor="let barber of barbers" [value]="barber._id">{{ barber.name }}</option>
+        </select>
+    </div>
+
+    <button (click)="confirmCitation()">Confirmar cita</button>
+</div>
+
+<div class="modify-section" *ngIf="showModifyCitation">
+    <h3>Seleccione una cita para modificar:</h3>
+    <div class="scroll-container">
+        <button *ngFor="let citation of citations; let i = index" (click)="openEditPopup(i)">
+            {{ citation.date | date: 'shortDate' }} - {{ citation.date | date: 'shortTime' }} - {{ getBarberName(citation.barberId) }}
+        </button>
+    </div>
+</div>
+
+<div class="edit-popup" *ngIf="editPopupVisible">
+    <button class="close-popup" (click)="closepopup()">x</button>
+    <h3>Modificar cita</h3>
+
+    <div class="edit-citation-fields">
+        <label>Fecha:</label>
+        <input type="date" [(ngModel)]="editCitation.selectedDate" />
+
+        <label>Hora:</label>
+        <input type="time" [(ngModel)]="editCitation.selectedHour" />
+
+        <label>Barbero:</label>
+        <select [(ngModel)]="editCitation.selectedBarber">
+            <option value="">Seleccionar barbero</option>
+            <option *ngFor="let barber of barbers" [value]="barber._id">{{ barber.name }}</option>
+        </select>
+    </div>
+
+    <button (click)="saveEditedCitation()">Guardar cambios</button>
+</div>
+
+<div class="delete-section" *ngIf="showDeleteCitation">
+    <h3>Seleccione una cita para eliminar:</h3>
+    <div class="scroll-container">
+        <button *ngFor="let citation of citations; let i = index" (click)="openDeletePopup(i)">
+            {{ citation.date | date: 'shortDate' }} - {{ citation.date | date: 'shortTime' }} - {{ getBarberName(citation.barberId) }}
+        </button>
+    </div>
+</div>
+
+<div class="popup" *ngIf="confirmDeletePopupVisible">
+    <p>¿Está seguro de eliminar esta cita?</p>
+    <div class="popup-buttons">
+        <button class="confirm-delete-button" (click)="deleteCitation()">Sí</button>
+        <button (click)="cancelDeleteCitation()">No</button>
+    </div>
+</div>

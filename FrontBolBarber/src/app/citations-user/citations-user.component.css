@@ -1,0 +1,248 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #040404;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.navbar-left h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #ecf0f1;
+}
+
+.navbar-right button {
+    margin-left: 20px;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar-right button:hover {
+    color: #3498db;
+}
+
+.citations-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 30px 0;
+}
+
+.buttons {
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.add-citation-form {
+    max-width: 400px;
+    margin: 0 auto 30px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-citation-form label {
+    display: block;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+.add-citation-form input,
+.add-citation-form select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.add-citation-form button {
+    margin-top: 15px;
+    width: 100%;
+    background-color: #28a745;
+}
+
+.add-citation-form button:hover {
+    background-color: #218838;
+}
+
+.citations-list {
+    text-align: center;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.edit-popup,
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    width: 90%;
+    max-width: 400px;
+    max-height: fit-content;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.edit-popup::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(93, 92, 92, 0.4);
+    z-index: -1;
+}
+
+.popup::before {
+    content: none;
+}
+
+.edit-popup h3,
+.popup p {
+    margin-top: 0;
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.2rem;
+    color: #333;
+}
+
+.edit-citation-fields {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem 1rem;
+    align-items: center;
+}
+
+.edit-citation-fields label {
+    margin-top: 0;
+    font-weight: 500;
+    text-align: right;
+}
+
+.edit-citation-fields input,
+.edit-citation-fields select {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+.popup-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.popup-buttons button {
+    flex: 1;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.popup-buttons button:hover {
+    background-color: #d32f2f;
+}
+
+.popup-buttons .confirm-delete-button {
+    background-color: #007bff;
+}
+
+.popup-buttons .confirm-delete-button:hover {
+    background-color: #0056b3;
+}
+
+.scroll-container {
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid #f3a2a2;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: #fafafa;
+    margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.scroll-container button {
+    display: block;
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: #007bff;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    box-sizing: border-box;
+}
+
+.scroll-container button:hover {
+    background-color: #c0c0c0;
+}
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff; 
+    background:#007bff ;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 1010;
+    padding:6px 12px;
+    line-height: 1; 
+    border-radius: 4px;
+    z-index:1010;
+}
+
+.close-popup:hover {
+    color: #0056b3; 
+}

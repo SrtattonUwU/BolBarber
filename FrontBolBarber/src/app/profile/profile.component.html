@@ -1,0 +1,42 @@
+<nav class="navbar">
+    <div class="navbar-left">
+        <h2>BolBarber</h2>
+    </div>
+    <div class="navbar-right">
+        <button (click)="goToHome()">Principal</button>
+        <button (click)="goToProducts()">Productos</button>
+        <button (click)="goToCitations()">Citas</button>
+        <button>Perfil</button>
+        <button (click)="goToAbout()">Acerca de</button>
+        <button (click)="logOut()">Cerrar sesión</button>
+    </div>
+</nav>
+
+<div class="profile-container">
+<h2>Perfil del Usuario</h2>
+
+    <div class="profile-info">
+        <label>Nombre:</label>
+        <input [(ngModel)]="user.name" type="text"/>
+
+        <label>Correo:</label>
+        <input [(ngModel)]="user.email" type="email"/>
+
+        <label>Nueva contraseña:</label>
+        <input type="password" [(ngModel)]="passwordData.newPassword" />
+
+        <label>Confirmar nueva contraseña:</label>
+        <input type="password" [(ngModel)]="passwordData.confirmPassword" />
+    </div>
+
+    <div class="profile-buttons">
+        <button *ngIf="!isEditing" (click)="editProfile()">Editar</button>
+        <button *ngIf="isEditing" (click)="saveProfile()">Guardar</button>
+        <button *ngIf="isEditing" (click)="cancelEdit()">Cancelar</button>
+        
+    </div>
+    <div class="delete-account">
+        <button class="deleteAccount" *ngIf="!isEditing" (click)="deleteAccount()">Borrar Cuenta</button>
+    </div>
+    <div>
+</div>
